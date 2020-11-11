@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import { prompt } from "enquirer";
 import fs from "fs-extra";
 import path from "path";
