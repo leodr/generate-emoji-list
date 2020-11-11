@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"importHelpers": true,
+		"lib": ["ESNext"],
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"outDir": "dist",
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "es5",
+		"declaration": true
+	}
+}
