@@ -1,6 +1,7 @@
 {
 	"name": "generate-emoji-list",
 	"version": "1.0.0",
+	"description": "Generate a comprehensive list of all Unicode Emojis in any language.",
 	"license": "MIT",
 	"author": "Leonhard Driesch",
 	"sideEffects": false,
