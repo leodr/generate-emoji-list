@@ -47,7 +47,7 @@ async function start(): Promise<void> {
 	if (shouldBeTranslated) {
 		const { lang } = await prompt<{ lang: string }>({
 			type: "input",
-			name: "targetLanguage",
+			name: "lang",
 			message: "What language should the emoji descriptions be in?",
 			initial: Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2),
 		});
@@ -98,7 +98,6 @@ async function start(): Promise<void> {
 
 				// eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
 				while (!emojiData[emojiData.length - 1]) {
-					// eslint-disable-next-line @typescript-eslint/no-dynamic-delete
 					emojiData.pop();
 				}
 
