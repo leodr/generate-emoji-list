@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"declaration": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"importHelpers": true,
@@ -9,7 +10,6 @@
 		"outDir": "dist",
 		"skipLibCheck": true,
 		"strict": true,
-		"target": "es5",
-		"declaration": true
+		"target": "es5"
 	}
 }
