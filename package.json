@@ -2,6 +2,14 @@
 	"name": "generate-emoji-list",
 	"version": "1.0.0",
 	"description": "Generate a comprehensive list of all Unicode Emojis in any language.",
+	"keywords": [
+		"emoji",
+		"unicode-emoji",
+		"cloud-translation-api",
+		"json",
+		"emoji-list",
+		"generate-emoji-list"
+	],
 	"license": "MIT",
 	"author": "Leonhard Driesch",
 	"sideEffects": false,
