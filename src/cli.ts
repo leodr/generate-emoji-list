@@ -14,6 +14,7 @@ const UNICODE_VERSIONS = [
 	{ name: "12.1", message: "v12.1" },
 	{ name: "13.0", message: "v13.0" },
 	{ name: "13.1", message: "v13.1" },
+	{ name: "14.0", message: "v14.0" },
 ];
 
 const Features = {
