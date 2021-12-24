@@ -73,7 +73,7 @@ const { createEmojiList } = require("generate-emoji-list");
 
 const emojiList = await createEmojiList({
     unicodeVersion: "13.0",
-    features: { shortCodes: true },
+    features: { shortCodes: true, keywords: true },
 });
 ```
 
@@ -117,7 +117,7 @@ const { createEmojiList, translateEmojiList } = require("generate-emoji-list");
 
 const emojiList = await createEmojiList({
     unicodeVersion: "13.0",
-    features: { shortCodes: true },
+    features: { shortCodes: true, keywords: true },
 });
 
 const germanEmojiList = await translateEmojiList({

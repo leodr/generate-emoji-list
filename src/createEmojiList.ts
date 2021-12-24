@@ -1,37 +1,44 @@
 import fetch from "isomorphic-unfetch";
 import { Emoji, EmojiList } from "./emojiListTypes";
+import { getEmojiKeywords } from "./getEmojiKeywords";
 import { getEmojiShortCodes } from "./getEmojiShortCodes";
 
 interface CreateEmojiListOptions {
 	unicodeVersion?: UnicodeVersion;
 	features?: {
 		shortCodes: boolean;
+		keywords: boolean;
 	};
 }
 
 export async function createEmojiList(
 	options?: CreateEmojiListOptions
 ): Promise<EmojiList<Emoji>> {
-	const { unicodeVersion = "13.0", features = { shortCodes: true } } =
-		options ?? {};
+	const {
+		unicodeVersion = "13.0",
+		features = { shortCodes: true, keywords: true },
+	} = options ?? {};
 
 	const emojiList = await getEmojiList(unicodeVersion);
 
-	if (features.shortCodes) {
-		const shortCodeMap = await getEmojiShortCodes();
+	const shortCodeMap = features.shortCodes
+		? await getEmojiShortCodes()
+		: undefined;
 
-		return emojiList.map((category) => ({
-			...category,
-			emojis: category.emojis.map(({ emoji, description, modifiers }) => ({
-				emoji,
-				description,
-				modifiers,
-				shortCode: shortCodeMap.get(emoji) ?? [],
-			})),
-		}));
-	}
+	const keywords = features.keywords
+		? getEmojiKeywords(emojiList.flatMap((l) => l.emojis))
+		: undefined;
 
-	return emojiList;
+	return emojiList.map((category) => ({
+		...category,
+		emojis: category.emojis.map(({ emoji, ...rest }) => ({
+			emoji,
+			...rest,
+			shortCode:
+				shortCodeMap !== undefined ? shortCodeMap.get(emoji) ?? [] : undefined,
+			keywords: keywords !== undefined ? keywords.get(emoji) : undefined,
+		})),
+	}));
 }
 
 export type UnicodeVersion =

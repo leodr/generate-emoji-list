@@ -10,6 +10,7 @@
 		"outDir": "dist",
 		"skipLibCheck": true,
 		"strict": true,
-		"target": "es5"
+		"target": "es5",
+		"resolveJsonModule": true
 	}
 }

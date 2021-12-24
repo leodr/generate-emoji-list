@@ -32,6 +32,7 @@
 	},
 	"dependencies": {
 		"@google-cloud/translate": "^6.0.3",
+		"cldr-annotations-modern": "^40.0.0",
 		"enquirer": "^2.3.6",
 		"fs-extra": "^9.0.1",
 		"isomorphic-unfetch": "^3.1.0",

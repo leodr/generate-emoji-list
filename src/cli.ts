@@ -20,6 +20,7 @@ const Features = {
 	ShortCodes: 'Short code (e.g. "smile")',
 	Descriptions: 'Description (e.g. "grinning face with smiling eyes")',
 	Modifiers: "Modifiers (e.g. if an emojis skin tone can be modified)",
+	Keywords: "Keywords (e.g. [face, mouth, open, smile])",
 };
 
 start().catch(console.error);
@@ -68,7 +69,10 @@ async function start(): Promise<void> {
 
 	let emojiList = await createEmojiList({
 		unicodeVersion: version,
-		features: { shortCodes: selectedFeatures.includes(Features.ShortCodes) },
+		features: {
+			shortCodes: selectedFeatures.includes(Features.ShortCodes),
+			keywords: selectedFeatures.includes(Features.Keywords),
+		},
 	});
 
 	if (targetLanguage !== "en") {
@@ -81,11 +85,12 @@ async function start(): Promise<void> {
 	const addShortCodes = selectedFeatures.includes(Features.ShortCodes);
 	const addDescriptions = selectedFeatures.includes(Features.Descriptions);
 	const addModifiers = selectedFeatures.includes(Features.Modifiers);
+	const addKeywords = selectedFeatures.includes(Features.Keywords);
 
 	const mappedEmojis = emojiList.map((category) => ({
 		...category,
 		emojis: category.emojis.map(
-			({ emoji, description, modifiers, shortCode }) => {
+			({ emoji, description, modifiers, shortCode, keywords }) => {
 				if (!addDescriptions && !addShortCodes && !addModifiers) {
 					return emoji;
 				}
@@ -94,6 +99,7 @@ async function start(): Promise<void> {
 					emoji,
 					addDescriptions && description,
 					addShortCodes && shortCode?.join(),
+					addKeywords && keywords,
 					addModifiers &&
 						modifiers.map((mod) => (mod === "skin-tone" ? "s" : "")).join(""),
 				].filter((e) => e !== false);

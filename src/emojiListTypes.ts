@@ -10,6 +10,7 @@ export interface Emoji {
 	description: string;
 	modifiers: EmojiModifier[];
 	shortCode?: string[];
+	keywords?: string[];
 }
 
 export interface EmojiWithShortCodes extends Emoji {
