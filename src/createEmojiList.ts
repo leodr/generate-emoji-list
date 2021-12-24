@@ -41,7 +41,8 @@ export type UnicodeVersion =
 	| "12.0"
 	| "12.1"
 	| "13.0"
-	| "13.1";
+	| "13.1"
+	| "14.0";
 
 const LINE_REGEX = /^.*?; fully-qualified\s+# (.*?) (?:E\d+\.\d+ )?(.*)$/;
 const GROUP_REGEX = /^# group: (.*?)$/;

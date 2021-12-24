@@ -88,7 +88,8 @@ type UnicodeVersion =
     | "12.0"
     | "12.1"
     | "13.0"
-    | "13.1";
+    | "13.1"
+    | "14.0";
 ```
 
 When the `shortCodes`-feature is activated, an HTTP-Request will be made to the
@@ -116,7 +117,7 @@ import { createEmojiList, translateEmojiList } from "generate-emoji-list";
 const { createEmojiList, translateEmojiList } = require("generate-emoji-list");
 
 const emojiList = await createEmojiList({
-    unicodeVersion: "13.0",
+    unicodeVersion: "14.0",
     features: { shortCodes: true },
 });
 
