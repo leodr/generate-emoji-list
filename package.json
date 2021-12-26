@@ -26,7 +26,7 @@
 		"check-types": "tsc --noEmit",
 		"format": "prettier . --write",
 		"lint": "eslint . --ignore-path .gitignore",
-		"prepublishOnly": "yarn test && yarn build",
+		"prepublishOnly": "run-s test build",
 		"start": "ts-node src/cli.ts",
 		"test": "run-p lint check-types"
 	},
