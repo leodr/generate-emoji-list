@@ -24,7 +24,7 @@
 	"scripts": {
 		"build": "tsc",
 		"check-types": "tsc --noEmit",
-		"format": "prettier . --write --ignore-path .gitignore",
+		"format": "prettier . --write",
 		"lint": "eslint . --ignore-path .gitignore",
 		"prepublishOnly": "yarn test && yarn build",
 		"start": "ts-node src/cli.ts",
