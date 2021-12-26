@@ -72,7 +72,7 @@ import { createEmojiList } from "generate-emoji-list";
 const { createEmojiList } = require("generate-emoji-list");
 
 const emojiList = await createEmojiList({
-    unicodeVersion: "13.0",
+    unicodeVersion: "14.0",
     features: { shortCodes: true },
 });
 ```
