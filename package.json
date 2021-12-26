@@ -22,7 +22,7 @@
 		"dist/"
 	],
 	"scripts": {
-		"build": "tsc",
+		"build": "tsc --newLine lf",
 		"check-types": "tsc --noEmit",
 		"format": "prettier . --write",
 		"lint": "eslint . --ignore-path .gitignore",
